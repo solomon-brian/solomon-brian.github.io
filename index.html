@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--
+    // Solomon Brian
+    // Architect at heart
+    // Engineer by trade
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solomon Brian // Software Engineer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+    :root {
+      --bg-dark: #0a0f1f;
+      --bg-light: #1a1d2f;
+      --accent-primary: #00bfff;
+      --accent-secondary: #87cefa;
+      --text-main: #e0e6f0;
+      --text-dim: #6a7899;
+      --shadow-primary: 0 0 8px var(--accent-primary), 0 0 16px rgba(0, 191, 255, 0.3);
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    /* UPDATED BODY FOR PUSH FOOTER */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, var(--bg-dark), var(--bg-light));
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: repeating-linear-gradient(90deg, rgba(0, 191, 255, 0.05) 0px, rgba(0, 191, 255, 0.05) 1px, transparent 1px, transparent 50px),
+                        repeating-linear-gradient(0deg, rgba(0, 191, 255, 0.05) 0px, rgba(0, 191, 255, 0.05) 1px, transparent 1px, transparent 50px);
+      z-index: -1;
+    }
+    
+    /* NEW MAIN ELEMENT STYLE */
+    main {
+      flex: 1 0 auto; /* Makes this area grow, pushing footer down */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 40px;
+      margin: 40px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s 0.2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+      text-shadow: var(--shadow-primary);
+      margin: 0 0 10px 0;
+    }
+
+    h2.subtitle {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--accent-secondary);
+      margin: 0 0 30px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .bio {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 650px;
+      margin: 0 auto 40px auto;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: var(--shadow-primary);
+      margin: 60px 0 25px 0;
+      border-bottom: 2px solid var(--accent-primary);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .project-card {
+      background: rgba(10, 15, 31, 0.6);
+      border: 1px solid rgba(0, 191, 255, 0.2);
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 20px;
+      text-align: left;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.2);
+    }
+    
+    .project-card h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      color: var(--accent-secondary);
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-card h3 .project-logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 15px;
+      stroke: var(--accent-primary);
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .project-card p {
+      margin: 0 0 25px 0;
+      line-height: 1.6;
+    }
+
+    .project-link {
+      display: inline-block;
+      background-color: var(--accent-primary);
+      border: 2px solid var(--accent-primary);
+      color: var(--bg-dark);
+      padding: 12px 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      background-color: transparent;
+      color: var(--accent-primary);
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+    }
+    
+    .contact-links {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .contact-link {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 10px 20px;
+      border: 1px solid var(--text-dim);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-link:hover {
+      border-color: var(--accent-primary);
+      background-color: rgba(0, 191, 255, 0.1);
+      color: #fff;
+    }
+
+    /* UPDATED FOOTER STYLE */
+    footer {
+        text-align: center;
+        padding: 20px;
+        flex-shrink: 0; /* Prevents footer from shrinking if content is too long */
+        font-size: 0.9rem;
+        color: var(--text-dim);
+    }
+    
+    footer a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: var(--accent-primary);
+    }
+    
+    @media (max-width: 600px) {
+        h1 { font-size: 2.5rem; }
+        .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NEW MAIN WRAPPER -->
+  <main>
+    <div class="container">
+      <h1>Solomon Brian</h1>
+      <h2 class="subtitle">Software Engineer</h2>
+
+      <p class="bio">
+        I engineer full-stack applications where front-end experience and back-end logic converge. My focus is on serverless architectures, edge network deployment, and the integration of high-speed AI APIs to construct unique logical systems and conversational agents.
+      </p>
+
+      <h2 class="section-title">Featured System</h2>
+
+      <div class="project-card">
+        <h3>
+          <svg class="project-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50,10 A 40,40 0 1,1 49.9,10.01"/>
+            <path d="M40,58 L52,70 L72,50"/>
+            <path d="M50,25 A 10,12 0 1,1 49.9,25.01 M50,50 L50,52"/>
+          </svg>
+          TruthyFalsy
+        </h3>
+        <p>
+          A serverless AI judge engineered to deliver hyper-logical responses from a custom-defined persona. This system utilizes a Node.js function deployed on Vercel's edge network. Its core logic is a meticulously crafted system prompt that directs the Groq LPU for near-instantaneous response generation.
+        </p>
+        <a href="https://truthyfalsy.top" target="_blank" rel="noopener noreferrer" class="project-link">
+          Query The System
+        </a>
+      </div>
+
+      <div class="contact-links">
+        <a href="https://github.com/solomon-brian" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
+        <a href="mailto:automatedmechanicsanddynamics@gmail.com" class="contact-link">Email</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER IS NOW A DIRECT CHILD OF BODY -->
+  <footer>
+      <p>© 2025 <a href="https://www.automatedmechanicsanddynamics.com" target="_blank" rel="noopener noreferrer">Automated Mechanics and Dynamics</a></p>
+  </footer>
+
+</body>
+</html>
