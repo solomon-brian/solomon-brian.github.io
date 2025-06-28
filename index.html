@@ -27,7 +27,6 @@
       scroll-behavior: smooth;
     }
 
-    /* UPDATED BODY FOR PUSH FOOTER */
     body {
       margin: 0;
       padding: 0;
@@ -51,9 +50,8 @@
       z-index: -1;
     }
     
-    /* NEW MAIN ELEMENT STYLE */
     main {
-      flex: 1 0 auto; /* Makes this area grow, pushing footer down */
+      flex: 1 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -200,11 +198,10 @@
       color: #fff;
     }
 
-    /* UPDATED FOOTER STYLE */
     footer {
         text-align: center;
         padding: 20px;
-        flex-shrink: 0; /* Prevents footer from shrinking if content is too long */
+        flex-shrink: 0;
         font-size: 0.9rem;
         color: var(--text-dim);
     }
@@ -227,7 +224,6 @@
 </head>
 <body>
 
-  <!-- NEW MAIN WRAPPER -->
   <main>
     <div class="container">
       <h1>Solomon Brian</h1>
@@ -258,12 +254,11 @@
 
       <div class="contact-links">
         <a href="https://github.com/solomon-brian" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
-        <a href="mailto:automatedmechanicsanddynamics@gmail.com" class="contact-link">Email</a>
+        <a href="mailto:solomonbrian@automatedmechanicsanddynamics.com" class="contact-link">Email</a>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER IS NOW A DIRECT CHILD OF BODY -->
   <footer>
       <p>© 2025 <a href="https://www.automatedmechanicsanddynamics.com" target="_blank" rel="noopener noreferrer">Automated Mechanics and Dynamics</a></p>
   </footer>
